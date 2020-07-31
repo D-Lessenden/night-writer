@@ -15,6 +15,7 @@ class NightWriterTest < Minitest::Test
 
   def test_encode
     assert_equal ["0.", "..", ".."], @encode.encode_to_braille("a")
-    assert_equal ["0.", "..", "..", "0.", "0.", "..", "00", "..", ".."], @encode.encode_to_braille("abc")
+    assert_equal [["0.", "..", ".."], ["0.", "0.", ".."], ["00", "..", ".."]], @encode.encode_to_braille("abc")
+    assert_equal [["0.", "..", ".."], ["..", "..", ".."], ["0.", "..", ".."]], @encode.encode_to_braille("a a")
   end
 end

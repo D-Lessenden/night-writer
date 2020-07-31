@@ -1,19 +1,12 @@
 class Encode
-attr_reader :dictionary
-def initialize
-  @dictionary = { }
-end
-
 
 def encode_to_braille(input)
-  #braille = []
-  #need to split string into array. iterate over every
-  #element and use code below to translate
   if input.length == 1
     dictionary.select do |letter, braille|
       return braille if letter == input
     end
   else
+    #could break this down to two methods
     xyz = []
     arr = input.chars
     arr.each do |letter|
@@ -21,12 +14,13 @@ def encode_to_braille(input)
         xyz << v if k == letter
       end
     end
-    xyz.flatten #should this be flattened?
+    xyz #this makes an array of arrays, may need to reformat this
   end
-end
+
+end#method end
 
 def dictionary
-  @dictionary = {
+  dictionary = {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
       "c" => ["00", "..", ".."],
