@@ -21,7 +21,7 @@ attr_reader :file_reader
 end
 
 
-puts ARGV.inspect
-puts "Created '#{ARGV.last}' containing #{File.read(ARGV[0]).length} characters"
-#File.write(File.read(ARGV[0]), ARGV[1])  this makes a new folder with the name being the txt inside of arg0 and arg 1 being the text inside
-File.write(ARGV[1], File.read(ARGV[0])) #woop woop!
+# puts ARGV.inspect
+# puts "Created '#{ARGV.last}' containing #{File.read(ARGV[0]).length} characters"
+# #File.write(File.read(ARGV[0]), ARGV[1])  this makes a new folder with the name being the txt inside of arg0 and arg 1 being the text inside
+# File.write(ARGV[1], File.read(ARGV[0])) #woop woop!
