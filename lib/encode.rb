@@ -8,9 +8,20 @@ end
 def encode_to_braille(input)
   #braille = []
   #need to split string into array. iterate over every
-  #element and use code below to translate 
-  dictionary.select do |letter, braille|
-    return braille if letter == input
+  #element and use code below to translate
+  if input.length == 1
+    dictionary.select do |letter, braille|
+      return braille if letter == input
+    end
+  else
+    xyz = []
+    arr = input.chars
+    arr.each do |letter|
+      dictionary.select do |k, v|
+        xyz << v if k == letter
+      end
+    end
+    xyz.flatten #should this be flattened?
   end
 end
 
