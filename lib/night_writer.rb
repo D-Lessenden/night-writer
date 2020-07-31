@@ -13,7 +13,8 @@ attr_reader :file_reader
   def encode_to_braille(input)
 
   end
-
 end
 
-puts ARGV.inspect
+
+#puts ARGV.inspect
+puts "Created '#{ARGV.last}' containing #{File.read(ARGV[0]).length} characters"
