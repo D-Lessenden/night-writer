@@ -2,28 +2,10 @@ class Encode
 
 def encode_to_braille(input)
   if input.length == 1
-    xyz = []
-    dictionary.each do |letter, braille|
-      xyz << braille if letter == input
-    end
-    xyz.each do |x|
-      x.each do |y|
-        puts y #this prints more or less what i need
-        # but I dont know how to return it orrectly for test 
-    end
-    end
+    one_letter_encode(input)
   else
-    #could break this down to two methods
-    xyz = []
-    arr = input.chars
-    arr.each do |letter|
-      dictionary.select do |k, v|
-        xyz << v if k == letter
-      end
-    end
-    xyz #this makes an array of arrays, may need to reformat this
+    long_encode(input)
   end
-
 end#method end
 
 def dictionary
@@ -59,4 +41,29 @@ def dictionary
     }
   end
 
+  def one_letter_encode(input)
+    xyz = []
+    dictionary.each do |letter, braille|
+      xyz << braille if letter == input
+    end
+    xyz.each do |x|
+      x.each do |y|
+        puts y #this prints more or less what i need
+        # but I dont know how to return it correctly for test
+      end
+    end
   end
+
+  def long_encode(input)
+    xyz = []
+    arr = input.chars
+    arr.each do |letter|
+      dictionary.select do |k, v|
+        xyz << v if k == letter
+      end
+    end
+  xyz #this makes an array of arrays, may need to reformat this
+    end
+
+
+end#class
