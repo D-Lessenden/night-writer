@@ -62,8 +62,20 @@ def dictionary
         xyz << v if k == letter
       end
     end
-  xyz #this makes an array of arrays, may need to reformat this
+    #this makes an array of arrays, may need to reformat this
+    a = []
+    b = []
+    c = []
+    xyz.each do |braille_letter|
+        a << braille_letter[0]
+        b << braille_letter[1]
+        c << braille_letter[2]
     end
+     puts "#{a.join}\n#{b.join}\n#{c.join}"
+
+  end#method
+
+
 
 
 end#class
