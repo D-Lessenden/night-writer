@@ -46,12 +46,15 @@ def dictionary
     dictionary.each do |letter, braille|
       xyz << braille if letter == input
     end
-    xyz.each do |x|
-      x.each do |y|
-        puts y #this prints more or less what i need
-        # but I dont know how to return it correctly for test
-      end
+    a = []
+    b = []
+    c = []
+    xyz.each do |braille_letter|
+        a << braille_letter[0]
+        b << braille_letter[1]
+        c << braille_letter[2]
     end
+     return "#{a.join}\n#{b.join}\n#{c.join}"
   end
 
   def long_encode(input)
@@ -71,7 +74,7 @@ def dictionary
         b << braille_letter[1]
         c << braille_letter[2]
     end
-     puts "#{a.join}\n#{b.join}\n#{c.join}"
+     return "#{a.join}\n#{b.join}\n#{c.join}"
 
   end#method
 
