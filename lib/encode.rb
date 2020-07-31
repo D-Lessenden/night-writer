@@ -2,8 +2,15 @@ class Encode
 
 def encode_to_braille(input)
   if input.length == 1
-    dictionary.select do |letter, braille|
-      return braille if letter == input
+    xyz = []
+    dictionary.each do |letter, braille|
+      xyz << braille if letter == input
+    end
+    xyz.each do |x|
+      x.each do |y|
+        puts y #this prints more or less what i need
+        # but I dont know how to return it orrectly for test 
+    end
     end
   else
     #could break this down to two methods
@@ -20,6 +27,7 @@ def encode_to_braille(input)
 end#method end
 
 def dictionary
+  #maybe this can be its own class?
   dictionary = {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
