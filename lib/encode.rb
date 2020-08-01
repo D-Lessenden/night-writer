@@ -8,6 +8,13 @@ def encode_to_braille(input)
   end
 end#method end
 
+def encode_to_braille_wrap(input)
+  wrap = input.scan(/.{1,80}/)
+  braille_wrap = wrap.map do |input|
+    long_encode(input)
+  end.join("\n")
+end
+
 def dictionary
   #maybe this can be its own class?
   dictionary = {
@@ -65,7 +72,6 @@ def dictionary
         xyz << v if k == letter
       end
     end
-    #this makes an array of arrays, may need to reformat this
     a = []
     b = []
     c = []
@@ -75,10 +81,6 @@ def dictionary
         c << braille_letter[2]
     end
      return "#{a.join}\n#{b.join}\n#{c.join}"
-
   end#method
-
-
-
 
 end#class
