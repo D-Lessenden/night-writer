@@ -49,38 +49,38 @@ def dictionary
   end
 
   def one_letter_encode(input)
-    xyz = []
+    braille_array = []
     dictionary.each do |letter, braille|
-      xyz << braille if letter == input
+      braille_array << braille if letter == input
     end
-    a = []
-    b = []
-    c = []
-    xyz.each do |braille_letter|
-        a << braille_letter[0]
-        b << braille_letter[1]
-        c << braille_letter[2]
+    first_row = []
+    second_row = []
+    third_row = []
+    braille_array.each do |braille_letter|
+        first_row << braille_letter[0]
+        second_row << braille_letter[1]
+        third_row << braille_letter[2]
     end
-     return "#{a.join}\n#{b.join}\n#{c.join}"
+     return "#{first_row.join}\n#{second_row.join}\n#{third_row.join}"
   end
 
   def long_encode(input)
-    xyz = []
-    arr = input.chars
-    arr.each do |letter|
+    braille_array = []
+    string_array = input.chars
+    string_array.each do |letter|
       dictionary.select do |k, v|
-        xyz << v if k == letter
+        braille_array << v if k == letter
       end
     end
-    a = []
-    b = []
-    c = []
-    xyz.each do |braille_letter|
-        a << braille_letter[0]
-        b << braille_letter[1]
-        c << braille_letter[2]
+    first_row = []
+    second_row = []
+    third_row = []
+    braille_array.each do |braille_letter|
+        first_row << braille_letter[0]
+        second_row << braille_letter[1]
+        third_row << braille_letter[2]
     end
-     return "#{a.join}\n#{b.join}\n#{c.join}"
+     return "#{first_row.join}\n#{second_row.join}\n#{third_row.join}"
   end#method
 
 end#class

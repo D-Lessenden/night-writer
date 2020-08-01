@@ -3,7 +3,9 @@ class ReverseEncode
   def dictionary
     #maybe this can be its own class?
     dictionary = {
-        "a" => ["0.", "..", ".."],
+        "a" => ["0.",
+                "..",
+                ".."],
         "b" => ["0.", "0.", ".."],
         "c" => ["00", "..", ".."],
         "d" => ["00", ".0", ".."],
@@ -35,6 +37,7 @@ class ReverseEncode
 
     def invert
       dictionary.invert
+      binding.pry
     end
 
     def one_letter_trans(input)
@@ -42,6 +45,8 @@ class ReverseEncode
         return letter if input == braille
       end
     end
+    #foreach line store in array
+
 
     # def encode_to_braille(input)
     #   if input.length == 1
