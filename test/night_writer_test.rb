@@ -9,11 +9,6 @@ require './lib/encode'
 
 class NightWriterTest < Minitest::Test
 
-  # def test_it_can_read_files 
-  #   read = FileReader.new
-  #   filename = message.txt
-  #   assert_equal "hello", read.read 
-  # end #this now lives in the file_read_test
 
   def setup
     @nightwriter = NightWriter.new
@@ -24,8 +19,19 @@ class NightWriterTest < Minitest::Test
     assert_instance_of NightWriter, @nightwriter
   end
 
-  def test_it_can_encode
+  def test_it_can_encode_to_braille
     assert_equal "0.0.00\n..0...\n......", @nightwriter.encode("abc")
+  end
+
+  def test_it_reads_files
+    ARGV[0] = "message.txt"
+    assert_equal "hello world\n", @nightwriter.read
+  end
+
+  def test_can_convert_txt_file_to_braille
+    plain = "message.txt"
+    expected = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0..."
+    assert_equal expected, @nightwriter.encode_file_to_braille
   end
 
 

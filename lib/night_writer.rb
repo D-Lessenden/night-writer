@@ -6,19 +6,22 @@ attr_reader :file_reader
     @encode = Encode.new
   end
 
-  # def encode_file_to_braille
-  #   plain = reader.read
-  #   braille = encode_to_braille(plain)
-  # end
+  def read
+    @reader.read
+  end
+
+  def encode_file_to_braille
+    plain = @reader.read
+    braille = encode(plain)
+  end
 
   def encode(input)
     @encode.encode_to_braille(input)
   end
 
-  def encode_to_braille(input)
-
-  end
-
+  # def encode_to_braille(input)
+  #
+  # end
 
 
 
@@ -26,6 +29,6 @@ attr_reader :file_reader
 end
 
 
-#puts ARGV.inspect
-#puts "Created '#{ARGV.last}' containing #{File.read(ARGV[0]).length} characters"
-#File.write(ARGV[1], File.read(ARGV[0])) #woop woop!
+# #puts ARGV.inspect
+  # puts "Created '#{ARGV.last}' containing #{File.read(ARGV[0]).length} characters"
+  # File.write(ARGV[1], File.read(ARGV[0])) #woop woop!

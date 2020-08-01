@@ -14,7 +14,7 @@ class NightWriterTest < Minitest::Test
   end
 
   def test_encode
-    skip #artifact from before I could fully convert to braille 
+    skip #artifact from before I could fully convert to braille
     assert_equal [["0.", "..", ".."]], @encode.encode_to_braille("a")
     assert_equal [["0.", "..", ".."], ["0.", "0.", ".."], ["00", "..", ".."]], @encode.encode_to_braille("abc")
     assert_equal [["0.", "..", ".."], ["..", "..", ".."], ["0.", "..", ".."]], @encode.encode_to_braille("a a")
@@ -38,5 +38,13 @@ class NightWriterTest < Minitest::Test
   def test_print_braille_multi_letter
     expected = "00000.\n...0.0\n000000"
     assert_equal expected, @encode.long_encode("xyz")
+  end
+
+  def test_one_letter_thru_encode_to_braille
+    assert_equal ".0\n00\n0.", @encode.encode_to_braille("t")
+  end
+
+  def test_long_encode_thru_encode_to_braille
+    assert_equal "0..00.0..000\n..00.00000.0\n...0..0.0.00", @encode.encode_to_braille("qwerty")
   end
 end

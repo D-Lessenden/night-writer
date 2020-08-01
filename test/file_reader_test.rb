@@ -17,11 +17,11 @@ class FileReaderTest < Minitest::Test
   end
 
   def test_it_reads_files
-    filename = "message.txt"
-    assert_equal "hello world", @reader.read(filename)
-    #this passes when takes an argument, may need to alter
-    #functionality 
-
+    ARGV[0] = "message.txt"
+    assert_equal "hello world\n", @reader.read
+    #this passes (well, there is a ghost \n)
+    #when takes an argument, may need to alter
+    #for functionality
   end
 
 end
