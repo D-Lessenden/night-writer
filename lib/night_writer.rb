@@ -10,14 +10,15 @@ attr_reader :file_reader
     @reader.read
   end
 
+  def encode(input)
+    @encode.encode_to_braille(input)
+  end
+
   def encode_file_to_braille
     plain = @reader.read
     braille = encode(plain)
   end
 
-  def encode(input)
-    @encode.encode_to_braille(input)
-  end
 
   # def encode_to_braille(input)
   #
