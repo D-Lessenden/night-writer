@@ -50,8 +50,10 @@ class EncodeTest < Minitest::Test
   end
 
   def test_long_encode_thru_encode_to_braille
-    assert_equal "0..00.0..000\n..00.00000.0\n...0..0.0.00", @encode.encode_to_braille("qwerty")
+    assert_equal "00.00.0..000\n0000.00000.0\n0..0..0.0.00", @encode.encode_to_braille("qwerty")
   end
+
+
 
   def test_can_convert_txt_file_to_wrap_braille
     ARGV[0] = "test_file.txt"

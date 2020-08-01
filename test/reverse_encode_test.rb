@@ -14,8 +14,9 @@ class NightWriterTest < Minitest::Test
   end
 
   def test_can_invert_dictionary
-    binding.pry
-    assert_equal "", @encode.invert.key[[["0.", "..", ".."]]]
+    assert_equal "a", @encode.invert[["0.", "..", ".."]]
+    assert_equal "q", @encode.invert[["00", "00", "0."]]
+    assert_equal 27, @encode.invert.keys.count
   end
 
   # def test_encode
