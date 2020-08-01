@@ -9,10 +9,10 @@ class NightReader
     @reader.read
   end
 
-  # def encode(input)
-  #   #@encode.encode_to_braille(input)
-  #   @encode.encode_to_braille_wrap(input)
-  # end
+  def encode(input)
+    @encode.encode_to_english(input)
+    #@encode.encode_to_braille_wrap(input)
+  end
   #
   # def encode_file_to_braille
   #   plain = read

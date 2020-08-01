@@ -4,7 +4,7 @@ require 'minitest/pride'
 require 'pry'
 require './lib/night_reader'
 require './lib/file_reader'
-#require './lib/encode'
+require './lib/reverse_encode'
 
 
 class NightReaderTest < Minitest::Test
@@ -12,7 +12,7 @@ class NightReaderTest < Minitest::Test
 
   def setup
     @nightreader = NightReader.new
-  #  @encode = Encode.new
+    @encode = ReverseEncode
   end
 
   def test_it_exists
@@ -32,11 +32,11 @@ class NightReaderTest < Minitest::Test
   end
 
 
-  # def test_it_can_encode_to_braille
-  #   assert_equal "0.0.00\n..0...\n......", @nightwriter.encode("abc")
-  #   assert_equal ".0\n00\n.0", @nightwriter.encode("w")
-  # end
-  #
+  def test_it_can_encode_to_english
+    assert_equal "w", @nightreader.encode(".0\n00\n.0")
+    #assert_equal "abc", @nightreader.encode("0.0.00\n..0...\n......")
+  end
+
   #
   # def test_can_convert_txt_file_to_braille
   #   ARGV[0] = "message.txt"
@@ -60,16 +60,8 @@ class NightReaderTest < Minitest::Test
 
 
 end
-#
-# Using your existing Ruby program as a template,
-# create a new program called NightReader
-# that prints a confirmation message to the terminal
-# that contains the name of the file that the user
-# input as their second argument.
-#
-# Calculate the number of characters in the file provided
-# as input and include that in the confirmation message.
-#
+
+
 # Create a dictionary that maps some representation of
 # Braille characters to English characters.
 #

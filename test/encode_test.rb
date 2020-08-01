@@ -3,8 +3,9 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
 require './lib/encode'
+require './lib/file_reader'
 
-class NightWriterTest < Minitest::Test
+class EncodeTest < Minitest::Test
   def setup
     @encode = Encode.new
   end
