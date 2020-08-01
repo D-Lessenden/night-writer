@@ -4,7 +4,7 @@ require 'minitest/pride'
 require 'pry'
 require './lib/reverse_encode'
 
-class NightWriterTest < Minitest::Test
+class ReverseEncodeTest < Minitest::Test
   def setup
     @encode = ReverseEncode.new
   end
@@ -17,6 +17,10 @@ class NightWriterTest < Minitest::Test
     assert_equal "a", @encode.invert[["0.", "..", ".."]]
     assert_equal "q", @encode.invert[["00", "00", "0."]]
     assert_equal 27, @encode.invert.keys.count
+  end
+
+  def test_translate_one_letter_to_english
+    assert_equal "a", @encode.one_letter_trans(["0.", "..", ".."])
   end
 
   # def test_encode
