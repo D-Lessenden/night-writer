@@ -19,6 +19,12 @@ class NightWriterTest < Minitest::Test
     assert_instance_of NightWriter, @nightwriter
   end
 
+  def test_file_length
+    ARGV[0] = "message.txt"
+    ARGV[1] = "braille.txt"
+    assert_equal 12, File.read(ARGV[0]).length
+  end
+
   def test_it_reads_files
     ARGV[0] = "message.txt"
     assert_equal "hello world\n", @nightwriter.read
