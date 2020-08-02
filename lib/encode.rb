@@ -10,7 +10,7 @@ end
 
 def encode_to_braille_wrap(input)
   wrap = input.scan(/.{1,80}/)
-  braille_wrap = wrap.map do |input|
+  wrap.map do |input|
     long_encode(input)
   end.join("\n")
 end
