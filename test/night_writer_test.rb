@@ -55,9 +55,9 @@ class NightWriterTest < Minitest::Test
   end
 
   def test_can_convert_txt_file_to_wrap_braille
-    ARGV[0] = "test_file.txt"
+    ARGV[0] = "wrap_file.txt"
     ARGV[1] = "long_braille.txt"
-    plain = "test_file.txt"
+    plain = "wrap_file.txt"
     braille = "long_braille.txt"
     @nightwriter.encode_file_to_braille
     expected =

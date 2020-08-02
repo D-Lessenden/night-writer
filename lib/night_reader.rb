@@ -11,7 +11,7 @@ class NightReader
   end
 
   def encode(input)
-    @encode.long_translate(input)
+    @encode.wrap_translate(input)
   end
 
   def encode_file_to_english
