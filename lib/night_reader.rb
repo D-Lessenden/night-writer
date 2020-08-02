@@ -7,7 +7,6 @@ class NightReader
 
   def read
     @reader.read
-
   end
 
   def encode(input)
