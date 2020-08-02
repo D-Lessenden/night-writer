@@ -21,7 +21,6 @@
           null,
           null,
           1,
-          null,
           423,
           null,
           null,
@@ -128,7 +127,6 @@
       "/Users/daniellessenden/mod_1_projects/night-writer/lib/night_writer.rb": {
         "lines": [
           1,
-          null,
           null,
           1,
           7,
@@ -237,7 +235,6 @@
           4,
           null,
           null,
-          null,
           1,
           6,
           null,
@@ -247,6 +244,7 @@
           3,
           3,
           3,
+          null,
           null,
           null,
           null
@@ -345,7 +343,6 @@
           null,
           1,
           null,
-          null,
           1,
           7,
           7,
@@ -399,7 +396,6 @@
           1,
           1,
           1,
-          null,
           null,
           null,
           null,
@@ -481,6 +477,6 @@
         ]
       }
     },
-    "timestamp": 1596406822
+    "timestamp": 1596407141
   }
 }

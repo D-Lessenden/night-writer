@@ -7,7 +7,6 @@ require './lib/encode'
 
 class NightWriterTest < Minitest::Test
 
-
   def setup
     @nightwriter = NightWriter.new
     @encode = Encode.new
@@ -76,7 +75,6 @@ class NightWriterTest < Minitest::Test
 0.0...0.0.0.0...0.0.0.0...0.0.0.0...0.0.0.0...0.0.0.0...0.0.0.0...0.0.0.0...0.0.0.0...0.0.0.0...0.0.0.0.
 ..00..0.0...00..0.0...00..0.0...00..0.0...00..0.0...00..0.0...00..0.0...00..0.0...00..0.0...00..0.0...00
 ........0.........0.........0.........0.........0.........0.........0.........0.........0.........0....."
-
     assert_equal expected, File.read("long_braille.txt")
     assert_equal 2246, File.read("long_braille.txt").length
   end

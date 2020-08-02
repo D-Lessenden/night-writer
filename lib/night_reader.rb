@@ -20,4 +20,5 @@ class NightReader
       file.write plain
     end
   end
+  
 end

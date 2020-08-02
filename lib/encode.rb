@@ -6,7 +6,7 @@ def encode_to_braille(input)
   else
     long_encode(input)
   end
-end#method end
+end
 
 def encode_to_braille_wrap(input)
   wrap = input.scan(/.{1,80}/)
@@ -16,7 +16,6 @@ def encode_to_braille_wrap(input)
 end
 
 def dictionary
-  #maybe this can be its own class?
   dictionary = {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
@@ -77,6 +76,6 @@ def dictionary
       end
     end
     translate_to_braille(braille_array)
-  end#method
+  end
 
-end#class
+end

@@ -57,7 +57,7 @@ class ReverseEncode
       braille_words = input.split("\n")
       braille_letters = [braille_words[0].scan(/.{1,2}/), braille_words[1].scan(/.{1,2}/), braille_words[2].scan(/.{1,2}/)].transpose { |top,middle,bottom| [top,middle,bottom]}
       to_english(braille_letters)
-    end#method
+    end
 
     def wrap_translate(input)
       braille_words = input.split("\n")
@@ -73,6 +73,6 @@ class ReverseEncode
 
       braille_letters = [first_row.scan(/.{1,2}/), second_row.scan(/.{1,2}/), third_row.scan(/.{1,2}/)].transpose {|top,middle,bottom| [top,middle,bottom]}
       to_english(braille_letters)
-    end#method
+    end
 
 end
