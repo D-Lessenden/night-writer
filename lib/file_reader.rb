@@ -7,7 +7,7 @@ class FileReader
     # File.open("test_file.txt").each do |line|
     #   puts line
     # end
-    #File.open("braille.txt").each {|line| puts line}
+    #File.open("qwerty.txt").each {|line| puts line}
   end
 
 end

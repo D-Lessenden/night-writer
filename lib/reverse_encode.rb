@@ -1,7 +1,6 @@
 class ReverseEncode
 
   def dictionary
-    #maybe this can be its own class?
     dictionary = {
         "a" => ["0.", "..", ".."],
         "b" => ["0.", "0.", ".."],
@@ -44,26 +43,45 @@ class ReverseEncode
          end
     end
 
-    #foreach line store in array
-
     def long_translate(input)
       braille_words = input.split("\n")
-      a = nil
-      b = nil
-      c = nil
+      # first = []
+      # second = []
+      # third = []
+      # # braille_words[0,3,6]
+      # # braille_words[1,4,7]
+      # # braille_words[2,5,8]
+      # #shift idea
+      # rows = braille_words.length
+      # x = rows / 3
+      # x.times {
+      # first.push(braille_words.shift)
+      # second.push(braille_words.shift).flatten
+      # third.push(braille_words.shift).flatten
+      #   }
+      #formatted_array = [top_row,middle_row,bottom_row].flatten
+      #   first.flatten!
+      #   binding.pry
+      top_row = []
+      middle_row = []
+      bottom_row = []
 
-      a = braille_words[0].scan(/.{1,2}/)
-      b = braille_words[1].scan(/.{1,2}/)
-      c = braille_words[2].scan(/.{1,2}/)
-      xyz = [a, b, c].transpose { |top,middle,bottom| [top,middle,bottom]}
+      top_row = braille_words[0].scan(/.{1,2}/)
+      middle_row = braille_words[1].scan(/.{1,2}/)
+      bottom_row = braille_words[2].scan(/.{1,2}/)
+
+      braille_letters = [top_row, middle_row, bottom_row].transpose { |top,middle,bottom| [top,middle,bottom]}
         english = []
-        xyz.each do |braille_letter|
+        braille_letters.each do |braille_letter|
           invert.each do |braille, letter|
-          english  << letter if braille_letter == braille
+          english << letter if braille_letter == braille
           end
         end
         english.join
     end#method
+
+
+
     # def long_encode(input)
     #   xyz = []
     #   arr = input.chars

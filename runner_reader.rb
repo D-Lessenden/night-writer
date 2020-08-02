@@ -1,12 +1,11 @@
 require './lib/night_reader'
 require './lib/file_reader'
-#require './lib/encode'
+require './lib/reverse_encode'
 
 @nightreader = NightReader.new
-# plain = ARGV[0]
-# braille = ARGV[1]
-#the above is from night writer will need to reverse these 
+braille = ARGV[0]
+plain = ARGV[1]
 puts ARGV.inspect
-puts "Created '#{ARGV[1]}' containing #{File.read(ARGV[0]).length} characters"
-File.write(ARGV[1], File.read(ARGV[0])) #woop woop!
-#@nightwriter.encode_file_to_braille
+puts "Created '#{plain}' containing #{File.read(braille).length} characters"
+File.write(plain, File.read(braille)) #woop woop!
+@nightreader.encode_file_to_english
