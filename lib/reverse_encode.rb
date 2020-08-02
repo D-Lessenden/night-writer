@@ -3,9 +3,7 @@ class ReverseEncode
   def dictionary
     #maybe this can be its own class?
     dictionary = {
-        "a" => ["0.",
-                "..",
-                ".."],
+        "a" => ["0.", "..", ".."],
         "b" => ["0.", "0.", ".."],
         "c" => ["00", "..", ".."],
         "d" => ["00", ".0", ".."],
@@ -37,17 +35,25 @@ class ReverseEncode
 
     def invert
       dictionary.invert
-      binding.pry
     end
 
     def one_letter_trans(input)
+      braille_array = input.split("\n")
       invert.select do |braille, letter|
-        return letter if input == braille
-      end
+           return letter if braille_array == braille
+         end
     end
+
+    #works for the literal keys including the brackets
+    # def one_letter_trans(input)
+    #   invert.select do |braille, letter|
+    #     binding.pry
+    #     return letter if input == braille
+    #   end
+    # end
     #foreach line store in array
 
-
+#####################################
     # def encode_to_braille(input)
     #   if input.length == 1
     #     one_letter_encode(input)

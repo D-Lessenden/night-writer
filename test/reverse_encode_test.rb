@@ -20,7 +20,9 @@ class ReverseEncodeTest < Minitest::Test
   end
 
   def test_translate_one_letter_to_english
-    assert_equal "a", @encode.one_letter_trans(["0.", "..", ".."])
+    assert_equal "a", @encode.one_letter_trans("0.\n..\n..")
+    assert_equal "b", @encode.one_letter_trans("0.\n0.\n..")
+    assert_equal "c", @encode.one_letter_trans("00\n..\n..")
   end
 
   # def test_encode
