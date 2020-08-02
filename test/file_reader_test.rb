@@ -1,6 +1,4 @@
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
+require "./test/test_helper"
 require 'pry'
 require './lib/night_writer'
 require './lib/file_reader'

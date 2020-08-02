@@ -8,3 +8,5 @@ the first 80 characters from original file
 should dictionary be another class?
 
 gets chomp asking to encode or decode for combining runners
+
+need to add simple cov or whatever the testing thing is

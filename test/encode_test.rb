@@ -1,6 +1,4 @@
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
+require "./test/test_helper"
 require 'pry'
 require './lib/encode'
 require './lib/file_reader'
@@ -73,4 +71,3 @@ class EncodeTest < Minitest::Test
     assert_equal 1154, File.read("long_braille.txt").length
   end
 end
-#NEED TO ADD A TEST FOR NON WRAP
