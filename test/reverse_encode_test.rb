@@ -25,6 +25,12 @@ class ReverseEncodeTest < Minitest::Test
     assert_equal "c", @encode.one_letter_trans("00\n..\n..")
   end
 
+  def test_it_can_translate_more_than_one_letter
+    #assert_equal "abc", @encode.long_translate("0.0.00\n..0...\n......")
+    assert_equal "qwerty", @encode.long_translate("00.00.0..000\n0000.00000.0\n0..0..0.0.00")
+
+  end
+
   # def test_encode
   #   skip #artifact from before I could fully convert to braille
   #   assert_equal [["0.", "..", ".."]], @encode.encode_to_braille("a")

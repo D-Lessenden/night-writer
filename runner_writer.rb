@@ -15,4 +15,5 @@ File.write(braille, File.read(plain)) #woop woop!
 #how should i conduct testing. especially line 10. should that be a method?
 #is my overall structure and file tree intuitive and easy to read
 
-# gets chomp asking to encode or decode 
+# gets chomp asking to encode or decode
+#to read braille file, foreach line and turn into an array 

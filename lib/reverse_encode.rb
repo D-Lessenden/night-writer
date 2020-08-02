@@ -44,14 +44,44 @@ class ReverseEncode
          end
     end
 
-    #works for the literal keys including the brackets
-    # def one_letter_trans(input)
-    #   invert.select do |braille, letter|
-    #     binding.pry
-    #     return letter if input == braille
-    #   end
-    # end
     #foreach line store in array
+
+    def long_translate(input)
+      braille_words = input.split("\n")
+      a = nil
+      b = nil
+      c = nil
+
+      a = braille_words[0].scan(/.{1,2}/)
+      b = braille_words[1].scan(/.{1,2}/)
+      c = braille_words[2].scan(/.{1,2}/)
+      xyz = [a, b, c].transpose { |top,middle,bottom| [top,middle,bottom]}
+        english = []
+        xyz.each do |braille_letter|
+          invert.each do |braille, letter|
+          english  << letter if braille_letter == braille
+          end
+        end
+        english.join
+    end#method
+    # def long_encode(input)
+    #   xyz = []
+    #   arr = input.chars
+    #   arr.each do |letter|
+    #     dictionary.select do |k, v|
+    #       xyz << v if k == letter
+    #     end
+    #   end
+    #   a = []
+    #   b = []
+    #   c = []
+    #   xyz.each do |braille_letter|
+    #       a << braille_letter[0]
+    #       b << braille_letter[1]
+    #       c << braille_letter[2]
+    #   end
+    #    return "#{a.join}\n#{b.join}\n#{c.join}"
+    # end#method
 
 #####################################
     # def encode_to_braille(input)

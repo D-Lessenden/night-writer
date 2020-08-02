@@ -2,7 +2,7 @@ class NightReader
 
   def initialize
     @reader = FileReader.new
-    #@encode = Encode.new
+    @encode = ReverseEncode.new
   end
 
   def read
@@ -10,7 +10,7 @@ class NightReader
   end
 
   def encode(input)
-    @encode.encode_to_english(input)
+    @encode.one_letter_trans(input)
     #@encode.encode_to_braille_wrap(input)
   end
   #
