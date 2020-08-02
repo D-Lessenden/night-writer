@@ -2,24 +2,21 @@ class Encode
 
 def encode_to_braille(input)
   if input.length == 1
-    dictionary.select do |letter, braille|
-      return braille if letter == input
-    end
+    one_letter_encode(input)
   else
-    #could break this down to two methods
-    xyz = []
-    arr = input.chars
-    arr.each do |letter|
-      dictionary.select do |k, v|
-        xyz << v if k == letter
-      end
-    end
-    xyz #this makes an array of arrays, may need to reformat this
+    long_encode(input)
   end
-
 end#method end
 
+def encode_to_braille_wrap(input)
+  wrap = input.scan(/.{1,80}/)
+  braille_wrap = wrap.map do |input|
+    long_encode(input)
+  end.join("\n")
+end
+
 def dictionary
+  #maybe this can be its own class?
   dictionary = {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
@@ -37,7 +34,7 @@ def dictionary
       "n" => ["00", ".0", "0."],
       "o" => ["0.", ".0", "0."],
       "p" => ["00", "0.", "0."],
-      "q" => ["0.", "..", ".."],
+      "q" => ["00", "00", "0."],
       "r" => ["0.", "00", "0."],
       "s" => [".0", "0.", "0."],
       "t" => [".0", "00", "0."],
@@ -51,4 +48,39 @@ def dictionary
     }
   end
 
+  def one_letter_encode(input)
+    braille_array = []
+    dictionary.each do |letter, braille|
+      braille_array << braille if letter == input
+    end
+    first_row = []
+    second_row = []
+    third_row = []
+    braille_array.each do |braille_letter|
+        first_row << braille_letter[0]
+        second_row << braille_letter[1]
+        third_row << braille_letter[2]
+    end
+     return "#{first_row.join}\n#{second_row.join}\n#{third_row.join}"
   end
+
+  def long_encode(input)
+    braille_array = []
+    string_array = input.chars
+    string_array.each do |letter|
+      dictionary.select do |k, v|
+        braille_array << v if k == letter
+      end
+    end
+    first_row = []
+    second_row = []
+    third_row = []
+    braille_array.each do |braille_letter|
+        first_row << braille_letter[0]
+        second_row << braille_letter[1]
+        third_row << braille_letter[2]
+    end
+     return "#{first_row.join}\n#{second_row.join}\n#{third_row.join}"
+  end#method
+
+end#class
