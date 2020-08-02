@@ -48,11 +48,7 @@ def dictionary
     }
   end
 
-  def one_letter_encode(input)
-    braille_array = []
-    dictionary.each do |letter, braille|
-      braille_array << braille if letter == input
-    end
+  def translate_to_braille(braille_array)
     first_row = []
     second_row = []
     third_row = []
@@ -64,6 +60,14 @@ def dictionary
      return "#{first_row.join}\n#{second_row.join}\n#{third_row.join}"
   end
 
+  def one_letter_encode(input)
+    braille_array = []
+    dictionary.each do |letter, braille|
+      braille_array << braille if letter == input
+    end
+    translate_to_braille(braille_array)
+  end
+
   def long_encode(input)
     braille_array = []
     string_array = input.chars
@@ -72,15 +76,7 @@ def dictionary
         braille_array << v if k == letter
       end
     end
-    first_row = []
-    second_row = []
-    third_row = []
-    braille_array.each do |braille_letter|
-        first_row << braille_letter[0]
-        second_row << braille_letter[1]
-        third_row << braille_letter[2]
-    end
-     return "#{first_row.join}\n#{second_row.join}\n#{third_row.join}"
+    translate_to_braille(braille_array)
   end#method
 
 end#class

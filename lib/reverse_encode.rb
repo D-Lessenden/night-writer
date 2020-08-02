@@ -58,23 +58,21 @@ class ReverseEncode
       braille_letters = [braille_words[0].scan(/.{1,2}/), braille_words[1].scan(/.{1,2}/), braille_words[2].scan(/.{1,2}/)].transpose { |top,middle,bottom| [top,middle,bottom]}
       to_english(braille_letters)
     end#method
-#add an if statement- if longer than w/e do the code below, if not, do above
-    #this works for the long method
-  def wrap_translate(input)
-    braille_words = input.split("\n")
-    first_row = ""; second_row = ""; third_row = ""
-    rows = braille_words.length
-    calculate_rows_of_braille = rows / 3
 
-    calculate_rows_of_braille.times {
-    first_row += (braille_words.shift)
-    second_row += (braille_words.shift)
-    third_row += (braille_words.shift)
-      }
+    def wrap_translate(input)
+      braille_words = input.split("\n")
+      first_row = ""; second_row = ""; third_row = ""
+      rows = braille_words.length
+      calculate_rows_of_braille = rows / 3
 
-    braille_letters = [first_row.scan(/.{1,2}/), second_row.scan(/.{1,2}/), third_row.scan(/.{1,2}/)].transpose {|top,middle,bottom| [top,middle,bottom]}
-    to_english(braille_letters)
-  end#method
+      calculate_rows_of_braille.times {
+      first_row += (braille_words.shift)
+      second_row += (braille_words.shift)
+      third_row += (braille_words.shift)
+        }
 
+      braille_letters = [first_row.scan(/.{1,2}/), second_row.scan(/.{1,2}/), third_row.scan(/.{1,2}/)].transpose {|top,middle,bottom| [top,middle,bottom]}
+      to_english(braille_letters)
+    end#method
 
 end

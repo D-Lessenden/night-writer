@@ -51,7 +51,7 @@ class NightReaderTest < Minitest::Test
     plain = "long_message.txt"
     braille = "long_braille.txt"
     @nightreader.encode_file_to_english
-    assert_equal "im just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah blah  ", File.read("long_message.txt")
+    assert_equal "im just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah blaim just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah", File.read("long_message.txt")
   end
 
   def test_another_needlessly_long_test
