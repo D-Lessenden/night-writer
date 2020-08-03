@@ -39,8 +39,8 @@ class NightReaderTest < Minitest::Test
   def test_can_translate_from_txt_file
     ARGV[0] = "braille.txt"
     ARGV[1] = "original.txt"
-    plain = "original.txt"
-    braille = "braille.txt"
+     plain = "original.txt"
+     braille = "braille.txt"
     @nightreader.encode_file_to_english
     assert_equal "hello world", File.read("original.txt")
   end
@@ -48,19 +48,19 @@ class NightReaderTest < Minitest::Test
   def test_it_can_translate_a_needlessly_long_file
     ARGV[0] = "long_braille.txt"
     ARGV[1] = "long_message.txt"
-    plain = "long_message.txt"
-    braille = "long_braille.txt"
+     plain = "long_message.txt"
+     braille = "long_braille.txt"
     @nightreader.encode_file_to_english
-    assert_equal "im just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah blaim just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah", File.read("long_message.txt")
+    assert_equal "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab", File.read("long_message.txt")
   end
 
   def test_another_needlessly_long_test
     ARGV[0] = "super_long_braille.txt"
     ARGV[1] = "super_long_message.txt"
-    plain = "super_long_message.txt"
-    braille = "super_long_braille.txt"
+     plain = "super_long_message.txt"
+     braille = "super_long_braille.txt"
     @nightreader.encode_file_to_english
-    assert_equal "im just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah blaim just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah", File.read("super_long_message.txt")
+    assert_equal "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab", File.read("super_long_message.txt")
   end
 
 end

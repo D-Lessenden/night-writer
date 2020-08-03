@@ -36,19 +36,17 @@ class ReverseEncodeTest < Minitest::Test
     assert_equal "qwerty", @encode.wrap_translate("00.00.0..000\n0000.00000.0\n0..0..0.0.00")
   end
 
-  def test_to_english_as_new_helper_method
-    ARGV[0] = "long_braille.txt"
-    ARGV[1] = "long_message.txt"
-    plain = "long_message.txt"
-    braille = "long_braille.txt"
-    assert_equal +"im just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah blaim just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah", File.read("long_message.txt")
-  end
+  # def test_to_english_as_new_helper_method
+  #   ARGV[0] = "long_braille.txt"
+  #   ARGV[1] = "long_message.txt"
+  #   assert_equal "", File.read("long_message.txt")
+  # end
 
   def test_it_can_handle_the_super_long_files
-    ARGV[0] = "long_braille.txt"
-    ARGV[1] = "long_message.txt"
-    plain = "long_message.txt"
-    braille = "long_braille.txt"
-    assert_equal "im just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah blaim just writing until i reach an obvious point that i am over the amount of lines required to get at least one new line blah blah blah blah blah blah blah blah blah blah blah blah blah", File.read("long_message.txt")
+    ARGV[0] = "super_long_braille.txt"
+    ARGV[1] = "super_long_message.txt"
+    @encode.wrap_translate(ARGV[1])
+    expected = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab"
+    assert_equal expected, File.read("super_long_original.txt")
   end
 end

@@ -1,7 +1,7 @@
 class ReverseEncode
 
-  def dictionary
-    dictionary = {
+    def dictionary
+      {
         "a" => ["0.", "..", ".."],
         "b" => ["0.", "0.", ".."],
         "c" => ["00", "..", ".."],
