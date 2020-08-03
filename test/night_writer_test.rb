@@ -36,8 +36,6 @@ class NightWriterTest < Minitest::Test
   def test_can_convert_txt_file_to_braille
     ARGV[0] = "message.txt"
     ARGV[1] = "braille.txt"
-    plain = "message.txt"
-    braille = "braille.txt"
     @nightwriter.encode_file_to_braille
     expected = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0..."
     assert_equal expected, File.read("braille.txt")
@@ -46,8 +44,6 @@ class NightWriterTest < Minitest::Test
   def test_it_can_downcase_capitals_and_encode
     ARGV[0] = "capital.txt"
     ARGV[1] = "capital_braille.txt"
-    plain = "capital.txt"
-    braille = "capital_braille.txt"
     @nightwriter.encode_file_to_braille
     expected = "000.00.0.00.0.\n....0.0.00..0.\n....0...0...0."
     assert_equal expected, File.read("capital_braille.txt")
@@ -56,8 +52,6 @@ class NightWriterTest < Minitest::Test
   def test_can_convert_txt_file_to_wrap_braille
     ARGV[0] = "super_long_message.txt"
     ARGV[1] = "super_long_braille.txt"
-    plain = "super_long_message.txt"
-    braille = "super_long_braille.txt"
     @nightwriter.encode_file_to_braille
     expected =
 "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.
@@ -74,6 +68,6 @@ class NightWriterTest < Minitest::Test
 .."
     assert_equal expected, File.read("super_long_braille.txt")
     assert_equal 1457, File.read("super_long_braille.txt").length
- end
+  end
 
 end
