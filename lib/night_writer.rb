@@ -16,9 +16,7 @@ class NightWriter
   def encode_file_to_braille
     plain = read.downcase.chomp
     braille = encode(plain)
-    File.open(ARGV[1], "w") do |file|
-      file.write braille
-    end
+    @reader.write(braille)
   end
 
 end
