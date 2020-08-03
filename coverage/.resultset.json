@@ -89,11 +89,9 @@
       "/Users/daniellessenden/mod_1_projects/night-writer/lib/file_reader.rb": {
         "lines": [
           1,
-          null,
           1,
           9,
           9,
-          null,
           null,
           null
         ]
@@ -454,6 +452,6 @@
         ]
       }
     },
-    "timestamp": 1596491084
+    "timestamp": 1596491611
   }
 }
