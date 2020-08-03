@@ -1,7 +1,7 @@
 class ReverseEncode
 
-  def dictionary
-    dictionary = {
+    def dictionary
+      {
         "a" => ["0.", "..", ".."],
         "b" => ["0.", "0.", ".."],
         "c" => ["00", "..", ".."],
@@ -43,113 +43,36 @@ class ReverseEncode
          end
     end
 
+    def to_english(braille_letters)
+      english = []
+      braille_letters.each do |braille_letter|
+        invert.each do |braille, letter|
+        english << letter if braille_letter == braille
+        end
+      end
+      english.join
+    end
+
     def long_translate(input)
       braille_words = input.split("\n")
-      # first = []
-      # second = []
-      # third = []
-      # # braille_words[0,3,6]
-      # # braille_words[1,4,7]
-      # # braille_words[2,5,8]
-      # #shift idea
-      # rows = braille_words.length
-      # x = rows / 3
-      # x.times {
-      # first.push(braille_words.shift)
-      # second.push(braille_words.shift).flatten
-      # third.push(braille_words.shift).flatten
-      #   }
-      #formatted_array = [top_row,middle_row,bottom_row].flatten
-      #   first.flatten!
-      #   binding.pry
-      top_row = []
-      middle_row = []
-      bottom_row = []
+      braille_letters = [braille_words[0].scan(/.{1,2}/), braille_words[1].scan(/.{1,2}/), braille_words[2].scan(/.{1,2}/)].transpose { |top,middle,bottom| [top,middle,bottom]}
+      to_english(braille_letters)
+    end
 
-      top_row = braille_words[0].scan(/.{1,2}/)
-      middle_row = braille_words[1].scan(/.{1,2}/)
-      bottom_row = braille_words[2].scan(/.{1,2}/)
+    def wrap_translate(input)
+      braille_words = input.split("\n")
+      first_row = ""; second_row = ""; third_row = ""
+      rows = braille_words.length
+      calculate_rows_of_braille = rows / 3
 
-      braille_letters = [top_row, middle_row, bottom_row].transpose { |top,middle,bottom| [top,middle,bottom]}
-        english = []
-        braille_letters.each do |braille_letter|
-          invert.each do |braille, letter|
-          english << letter if braille_letter == braille
-          end
-        end
-        english.join
-    end#method
+      calculate_rows_of_braille.times {
+      first_row += (braille_words.shift)
+      second_row += (braille_words.shift)
+      third_row += (braille_words.shift)
+        }
 
-
-
-    # def long_encode(input)
-    #   xyz = []
-    #   arr = input.chars
-    #   arr.each do |letter|
-    #     dictionary.select do |k, v|
-    #       xyz << v if k == letter
-    #     end
-    #   end
-    #   a = []
-    #   b = []
-    #   c = []
-    #   xyz.each do |braille_letter|
-    #       a << braille_letter[0]
-    #       b << braille_letter[1]
-    #       c << braille_letter[2]
-    #   end
-    #    return "#{a.join}\n#{b.join}\n#{c.join}"
-    # end#method
-
-#####################################
-    # def encode_to_braille(input)
-    #   if input.length == 1
-    #     one_letter_encode(input)
-    #   else
-    #     long_encode(input)
-    #   end
-    # end#method end
-    #
-    # def encode_to_braille_wrap(input)
-    #   wrap = input.scan(/.{1,80}/)
-    #   braille_wrap = wrap.map do |input|
-    #     long_encode(input)
-    #   end.join("\n")
-    # end
-    #
-    # def one_letter_encode(input)
-    #   xyz = []
-    #   dictionary.each do |letter, braille|
-    #     xyz << braille if letter == input
-    #   end
-    #   a = []
-    #   b = []
-    #   c = []
-    #   xyz.each do |braille_letter|
-    #       a << braille_letter[0]
-    #       b << braille_letter[1]
-    #       c << braille_letter[2]
-    #   end
-    #    return "#{a.join}\n#{b.join}\n#{c.join}"
-    # end
-    #
-    # def long_encode(input)
-    #   xyz = []
-    #   arr = input.chars
-    #   arr.each do |letter|
-    #     dictionary.select do |k, v|
-    #       xyz << v if k == letter
-    #     end
-    #   end
-    #   a = []
-    #   b = []
-    #   c = []
-    #   xyz.each do |braille_letter|
-    #       a << braille_letter[0]
-    #       b << braille_letter[1]
-    #       c << braille_letter[2]
-    #   end
-    #    return "#{a.join}\n#{b.join}\n#{c.join}"
-    # end#method
+      braille_letters = [first_row.scan(/.{1,2}/), second_row.scan(/.{1,2}/), third_row.scan(/.{1,2}/)].transpose {|top,middle,bottom| [top,middle,bottom]}
+      to_english(braille_letters)
+    end
 
 end

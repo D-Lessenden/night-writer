@@ -7,11 +7,10 @@ class NightReader
 
   def read
     @reader.read
-
   end
 
   def encode(input)
-    @encode.long_translate(input)
+    @encode.wrap_translate(input)
   end
 
   def encode_file_to_english
@@ -21,4 +20,5 @@ class NightReader
       file.write plain
     end
   end
+
 end

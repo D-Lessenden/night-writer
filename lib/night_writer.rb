@@ -1,5 +1,4 @@
 class NightWriter
-#attr_reader :file_reader
 
   def initialize
     @reader = FileReader.new

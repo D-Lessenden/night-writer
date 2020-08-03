@@ -29,4 +29,18 @@ class ReverseEncodeTest < Minitest::Test
     assert_equal "abc", @encode.long_translate("0.0.00\n..0...\n......")
     assert_equal "qwerty", @encode.long_translate("00.00.0..000\n0000.00000.0\n0..0..0.0.00")
   end
+
+  def test_new_method_housing_helper_functions
+    assert_equal "qwerty", @encode.long_translate("00.00.0..000\n0000.00000.0\n0..0..0.0.00")
+    assert_equal "a", @encode.wrap_translate("0.\n..\n..")
+    assert_equal "qwerty", @encode.wrap_translate("00.00.0..000\n0000.00000.0\n0..0..0.0.00")
+  end
+
+  def test_it_can_handle_the_super_long_files
+    ARGV[0] = "super_long_braille.txt"
+    ARGV[1] = "super_long_message.txt"
+    @encode.wrap_translate(ARGV[1])
+    expected = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab"
+    assert_equal expected, File.read("super_long_original.txt")
+  end
 end
