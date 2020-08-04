@@ -35,7 +35,6 @@ class NightReaderTest < Minitest::Test
     assert_equal "qwerty", @nightreader.encode("00.00.0..000\n0000.00000.0\n0..0..0.0.00")
   end
 
-
   def test_can_translate_from_txt_file
     ARGV[0] = "braille.txt"
     ARGV[1] = "original.txt"
